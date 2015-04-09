@@ -7,7 +7,7 @@ class Player {
     var player = this.props.player;
 
     return (
-      <li key={player.id}>
+      <li>
         {player.first_name} {player.last_name} ({player.position})
       </li>
     );

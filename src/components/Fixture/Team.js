@@ -13,7 +13,7 @@ export default class Team extends Component {
     let team = this.props.team;
 
     return (
-      <strong key={team.id}>
+      <strong>
         <a href="#" onClick={this.onClick.bind(this)}>{team.name}</a>
         <span> {team.score} </span>
       </strong>

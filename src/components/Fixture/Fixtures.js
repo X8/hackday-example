@@ -7,7 +7,7 @@ export default class Fixtures extends Component {
 
   render() {
     return (
-      <ul>{this.props.fixtures.map( fixture => <Fixture fixture={fixture} onTeamClicked={this.props.onTeamClicked} /> )}</ul>
+      <ul>{this.props.fixtures.map( fixture => <Fixture key={fixture.id} fixture={fixture} onTeamClicked={this.props.onTeamClicked} /> )}</ul>
     );
   }
 }

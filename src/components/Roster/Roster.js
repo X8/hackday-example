@@ -19,7 +19,7 @@ class Roster {
         <strong>{team.name}</strong>
         <p>Manager: {manager.first_name} {manager.last_name}</p>
         <ul>
-          {players.map( player => <Player player={player} /> )}
+          {players.map( player => <Player key={player.id} player={player} /> )}
         </ul>
       </section>
     );

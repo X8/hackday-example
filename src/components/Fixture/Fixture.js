@@ -11,11 +11,11 @@ export default class Fixture extends Component {
         stadium = fixture.stadium.name,
         state   = fixture.status.name,
         teams   = this.props.fixture.teams.map(
-            team => <Team team={team} onClick={this.props.onTeamClicked.bind(this, team)} />
+            team => <Team key={team.id} team={team} onClick={this.props.onTeamClicked.bind(this, team)} />
         );
 
     return (
-      <li key={fixture.id}>
+      <li>
         {date.format("MMM Do HH:MM")} {teams} @{stadium} ({state})
       </li>
     );
