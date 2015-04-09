@@ -47,7 +47,7 @@ gulp.task('assets', function() {
   src.assets = [
     'src/assets/**',
     'src/content*/**/*.*',
-    'src/templates*/**/*.*'
+    'src/index.html'
   ];
   return gulp.src(src.assets)
     .pipe($.changed('build'))
@@ -120,7 +120,7 @@ gulp.task('serve', ['build:watch'], function(cb) {
   src.server = [
     'build/server.js',
     'build/content/**/*',
-    'build/templates/**/*'
+    'build/index.html'
   ];
 
   var started = false;

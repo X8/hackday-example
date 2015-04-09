@@ -22,10 +22,3 @@ server.listen(server.get('port'), function() {
     console.log('The server is running at http://localhost:' + server.get('port'));
   }
 });
-
-var templateFile = path.join(__dirname, 'templates/index.html');
-var template = fs.readFileSync(templateFile, 'utf8');
-
-server.get('/', function(req, res) {
-  res.send(template);
-});
