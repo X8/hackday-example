@@ -4,10 +4,12 @@ import React from 'react/addons';
 import Gui from './components/Gui';
 import Api from './Api';
 
+const URL_ROOT = 'http://private-ecc71-hackday1.apiary-mock.com';
+
 class App {
   constructor(domNode) {
     this.domNode = domNode;
-    this.api = new Api();
+    this.api = new Api(URL_ROOT);
   }
 
   start() {
