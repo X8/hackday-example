@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Fixtures from './Fixture/Fixtures';
 import Roster from './Roster/Roster';
+import Navigation from './Navigation/Navigation';
 
 import _ from 'lodash';
 
@@ -20,8 +21,8 @@ class Gui extends Component {
 
   render() {
     return (
-      <div className="app">
-        <h1>Football Hackday</h1>
+      <div className="container-fluid">
+        <Navigation />
         <Fixtures fixtures={this.state.fixtures} onTeamClicked={this.showRoster.bind(this)} />
         <Roster roster={this.state.currentRoster} />
       </div>
