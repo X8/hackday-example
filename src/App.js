@@ -3,15 +3,18 @@
 import React from 'react/addons';
 import Gui from './components/Gui';
 import Api from './Api';
+import PusherClient from './PusherClient';
 
 import _ from 'lodash';
 
 const URL_ROOT = 'http://private-ecc71-hackday1.apiary-mock.com';
+const PUSHER_APP_ID = 'c92b97d8691c214faef8';
 
 class App {
   constructor(domNode) {
     this.domNode = domNode;
     this.api = new Api(URL_ROOT);
+    this.pusher = new PusherClient(PUSHER_APP_ID);
   }
 
   start() {
@@ -27,6 +30,7 @@ class App {
   prepareFixtures([fixtures, rosters]) {
     this.assignRostersToTeams(fixtures, rosters);
     this.gui.setState({fixtures: fixtures});
+    fixtures.forEach(this.subscribeMatchEvents.bind(this));
   }
 
   buildGui() {
@@ -49,6 +53,10 @@ class App {
 
   loadEvents(fixture) {
     this.api.fetchEvents(fixture.id).then( (fixtureWithEvents) => this.gui.showEvents(fixtureWithEvents) )
+  }
+
+  subscribeMatchEvents(fixture) {
+    this.pusher.subscribeMatchEvents(fixture, this.gui.addLiveEvent.bind(this.gui));
   }
 
 }

@@ -7,8 +7,9 @@ import Event from './Event';
 class Events extends Component {
 
   renderEvent(event) {
+    var key = `${this.props.fixture.id}-${event.sequence}`;
     return (
-      <Event key={event.id} event={event} />
+      <Event key={event.sequence} event={event} />
     );
   }
 

@@ -1,6 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/lib/Button';
+
 import Team from './Team';
 import moment from 'moment';
 
@@ -17,8 +19,8 @@ export default class Fixture extends Component {
 
     return (
       <li>
-        {date.format("MMM Do HH:MM")} {teams} @{stadium} ({state})
-        <button onClick={this.props.onEventsClicked.bind(this, fixture)}>Show events</button>
+        {date.format("MMM Do HH:MM")} {teams} @{stadium}
+        <Button onClick={this.props.onEventsClicked.bind(this, fixture)}>Show events</Button>
       </li>
     );
   }
