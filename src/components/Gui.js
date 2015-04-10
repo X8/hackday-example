@@ -5,8 +5,6 @@ import Fixtures from './Fixture/Fixtures';
 import Roster from './Roster/Roster';
 import Navigation from './Navigation/Navigation';
 
-import _ from 'lodash';
-
 class Gui extends Component {
   constructor(props) {
     super(props);
@@ -23,8 +21,14 @@ class Gui extends Component {
     return (
       <div className="container-fluid">
         <Navigation />
-        <Fixtures fixtures={this.state.fixtures} onTeamClicked={this.showRoster.bind(this)} />
-        <Roster roster={this.state.currentRoster} />
+        <div className="row">
+          <div className="col-md-4">
+            <Fixtures fixtures={this.state.fixtures} onTeamClicked={this.showRoster.bind(this)} />
+          </div>
+          <div className="col-md-4">
+            <Roster roster={this.state.currentRoster} />
+          </div>
+        </div>
       </div>
     );
   }

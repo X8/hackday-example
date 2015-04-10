@@ -4,6 +4,8 @@ import React from 'react/addons';
 import Gui from './components/Gui';
 import Api from './Api';
 
+import _ from 'lodash';
+
 const URL_ROOT = 'http://private-ecc71-hackday1.apiary-mock.com';
 
 class App {
