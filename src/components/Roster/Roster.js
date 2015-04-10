@@ -16,8 +16,7 @@ class Roster {
         manager = roster.manager;
 
     return (
-      <Panel header="Roster">
-        <strong>{team.name}</strong>
+      <Panel header={team.name}>
         <p>Manager: {manager.first_name} {manager.last_name}</p>
         <ul>
           {players.map( player => <Player key={player.id} player={player} /> )}
