@@ -30,7 +30,7 @@ class App {
   }
 
   buildGui() {
-    var guiElement = React.createElement(Gui);
+    var guiElement = React.createElement(Gui, {loadEvents: this.loadEvents.bind(this)});
     return React.render(guiElement, this.domNode);
   }
 
@@ -45,6 +45,10 @@ class App {
         team.roster = _(rosters).find( roster => roster.team.id === team.id );
       }
     }
+  }
+
+  loadEvents(fixture) {
+    this.api.fetchEvents(fixture.id).then( (fixtureWithEvents) => this.gui.showEvents(fixtureWithEvents) )
   }
 
 }

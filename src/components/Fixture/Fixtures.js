@@ -8,7 +8,11 @@ export default class Fixtures extends Component {
 
   renderFixture(fixture) {
     return (
-      <Fixture key={fixture.id} fixture={fixture} onTeamClicked={this.props.onTeamClicked} />
+      <Fixture key={fixture.id}
+               fixture={fixture}
+               onTeamClicked={this.props.onTeamClicked}
+               onEventsClicked={this.props.onEventsClicked}
+      />
     );
   }
 

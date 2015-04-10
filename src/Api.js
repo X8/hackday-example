@@ -15,6 +15,10 @@ class Api {
     return this.doGet('leagues/1/rosters').then( body => body.league.rosters );
   }
 
+  fetchEvents(fixtureId) {
+    return this.doGet(`leagues/1/fixtures/${fixtureId}/events`).then( body => body.league.fixture );
+  }
+
   doGet(url) {
     return new Promise( (resolve, reject) =>
       http.get(`${this.urlRoot}/${url}`)
