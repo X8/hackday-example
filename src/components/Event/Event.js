@@ -5,6 +5,14 @@ import Player from './Player';
 
 class Event extends Component {
 
+  renderPlayer(player) {
+    if(!player) {
+      return null;
+    }
+
+    return <Player player={player} />;
+  }
+
   render() {
     var event = this.props.event,
         time = event.time;
@@ -12,7 +20,7 @@ class Event extends Component {
     return (
       <li>
         ({time.minutes}:{time.seconds}) <strong> {event.name} </strong>
-        <Player player={event.player} /> to <Player player={event.recipient_player} />
+        {this.renderPlayer(event.player)} / {this.renderPlayer(event.recipient_player)}
       </li>
     );
   }

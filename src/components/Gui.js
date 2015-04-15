@@ -19,8 +19,8 @@ class Gui extends Component {
     this.refs.roster.setState({roster: roster});
   }
 
-  showEvents(fixture) {
-    this.setState({currentFixture: fixture});
+  showEvents(fixture, events) {
+    this.refs.events.setState({fixture: fixture, events: events});
   }
 
   addLiveEvent(event) {
@@ -40,15 +40,7 @@ class Gui extends Component {
           </div>
           <div className="col-md-6">
             <Roster ref="roster" />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <Events fixture={this.state.currentFixture} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12">
+            <Events ref="events" />
             <LiveEvents ref="liveEvents" />
           </div>
         </div>

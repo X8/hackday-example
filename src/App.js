@@ -46,7 +46,7 @@ class App {
   }
 
   loadEvents(fixture) {
-    this.api.fetchEvents(fixture.id).then( (fixtureWithEvents) => this.gui.showEvents(fixtureWithEvents) )
+    this.api.fetchEvents(fixture.id).then( events => this.gui.showEvents(fixture, events) )
   }
 
   subscribeMatchEvents(fixture) {
