@@ -4,13 +4,18 @@ import React, { Component } from 'react';
 import Panel from 'react-bootstrap/lib/Panel';
 import Player from './Player';
 
-class Roster {
+class Roster extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { roster: null };
+  }
+
   render() {
-    if(!this.props.roster) {
+    if(!this.state.roster) {
       return null;
     }
 
-    var roster  = this.props.roster,
+    var roster  = this.state.roster,
         team    = roster.team,
         players = roster.players,
         manager = roster.manager;

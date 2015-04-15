@@ -4,15 +4,15 @@ import http from 'superagent';
 
 class Api {
   constructor(urlRoot) {
-    this.urlRoot = urlRoot;
+    this.urlRoot = urlRoot + '/leagues/1';
   }
 
   fetchFixtures() {
-    return this.doGet('leagues/1/fixtures').then( body => body.league.fixtures );
+    return this.doGet('fixtures').then( body => body.league.fixtures );
   }
 
-  fetchRosters() {
-    return this.doGet('leagues/1/rosters').then( body => body.league.rosters );
+  fetchRoster(teamId) {
+    return this.doGet('rosters/' + teamId);
   }
 
   fetchEvents(fixtureId) {

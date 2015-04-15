@@ -20,21 +20,21 @@ class App {
   start() {
     this.gui = this.buildGui();
 
-    Promise.all([
-        this.api.fetchFixtures(),
-        this.api.fetchRosters()
-    ]).then(this.prepareFixtures.bind(this))
+    this.api.fetchFixtures()
+      .then(this.prepareFixtures.bind(this))
       .catch(this.loadingFailed.bind(this));
   }
 
-  prepareFixtures([fixtures, rosters]) {
-    this.assignRostersToTeams(fixtures, rosters);
+  prepareFixtures(fixtures) {
     this.gui.setState({fixtures: fixtures});
     fixtures.forEach(this.subscribeMatchEvents.bind(this));
   }
 
   buildGui() {
-    var guiElement = React.createElement(Gui, {loadEvents: this.loadEvents.bind(this)});
+    var guiElement = React.createElement(Gui, {
+      loadEvents: this.loadEvents.bind(this),
+      loadRoster: this.loadRoster.bind(this)
+    });
     return React.render(guiElement, this.domNode);
   }
 
@@ -43,12 +43,8 @@ class App {
     console.log(error);
   }
 
-  assignRostersToTeams(fixtures, rosters) {
-    for(let fixture of fixtures) {
-      for(let team of fixture.teams) {
-        team.roster = _(rosters).find( roster => roster.team.id === team.id );
-      }
-    }
+  loadRoster(team) {
+    this.api.fetchRoster(team.id).then( roster => this.gui.showRoster(roster) );
   }
 
   loadEvents(fixture) {

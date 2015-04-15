@@ -15,8 +15,8 @@ class Gui extends Component {
     };
   }
 
-  showRoster(team) {
-    this.setState({currentRoster: team.roster});
+  showRoster(roster) {
+    this.refs.roster.setState({roster: roster});
   }
 
   showEvents(fixture) {
@@ -34,12 +34,12 @@ class Gui extends Component {
         <div className="row">
           <div className="col-md-6">
             <Fixtures fixtures={this.state.fixtures}
-                      onTeamClicked={this.showRoster.bind(this)}
+                      onTeamClicked={this.props.loadRoster.bind(this)}
                       onEventsClicked={this.props.loadEvents.bind(this)}
             />
           </div>
           <div className="col-md-6">
-            <Roster roster={this.state.currentRoster} />
+            <Roster ref="roster" />
           </div>
         </div>
         <div className="row">
