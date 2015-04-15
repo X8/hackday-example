@@ -5,9 +5,7 @@ import Gui from './components/Gui';
 import Api from './Api';
 import PusherClient from './PusherClient';
 
-import _ from 'lodash';
-
-const URL_ROOT = 'http://private-ecc71-hackday1.apiary-mock.com';
+const URL_ROOT = 'https://hackday-api.herokuapp.com/api/leagues/39';
 const PUSHER_APP_ID = 'c92b97d8691c214faef8';
 
 class App {
