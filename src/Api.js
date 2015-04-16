@@ -2,13 +2,15 @@
 
 import http from 'superagent';
 
+const DEFAULT_GAMEWEEK = 30;
+
 class Api {
   constructor(urlRoot) {
     this.urlRoot = urlRoot;
   }
 
-  fetchFixtures() {
-    return this.doGet('fixtures');
+  fetchFixtures(gameweek = DEFAULT_GAMEWEEK) {
+    return this.doGet('fixtures/gameweek/' + gameweek);
   }
 
   fetchRoster(teamId) {
