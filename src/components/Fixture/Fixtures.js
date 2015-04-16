@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import Panel from 'react-bootstrap/lib/Panel';
+import Table from 'react-bootstrap/lib/Table';
+
 import Fixture from './Fixture';
 
 export default class Fixtures extends Component {
@@ -19,7 +21,11 @@ export default class Fixtures extends Component {
   render() {
     return (
       <Panel header="Fixtures">
-        <ul>{this.props.fixtures.map(this.renderFixture.bind(this))}</ul>
+        <Table striped>
+          <tbody>
+            {this.props.fixtures.map(this.renderFixture.bind(this))}
+          </tbody>
+        </Table>
       </Panel>
     );
   }

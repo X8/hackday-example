@@ -17,10 +17,12 @@ export default class Fixture extends Component {
         );
 
     return (
-      <li>
-        {date.format("MMM Do HH:MM")} {teams} @{stadium}
-        <Button onClick={this.props.onEventsClicked.bind(this, fixture)}>Show events</Button>
-      </li>
+      <tr>
+        <td>{date.format("MMM Do HH:MM")}</td>
+        <td>{teams}</td>
+        <td>{stadium}</td>
+        <td><Button onClick={this.props.onEventsClicked.bind(this, fixture)}>Show events</Button></td>
+      </tr>
     );
   }
 }
