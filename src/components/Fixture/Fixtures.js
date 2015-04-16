@@ -22,6 +22,13 @@ export default class Fixtures extends Component {
     return (
       <Panel header="Fixtures">
         <Table striped>
+          <thead>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Match</th>
+            <th>Stadium</th>
+            <th></th>
+          </thead>
           <tbody>
             {this.props.fixtures.map(this.renderFixture.bind(this))}
           </tbody>

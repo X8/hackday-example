@@ -18,6 +18,7 @@ export default class Fixture extends Component {
 
     return (
       <tr>
+        <td>{fixture.id}</td>
         <td>{date.format("MMM Do HH:MM")}</td>
         <td>{teams}</td>
         <td>{stadium}</td>
