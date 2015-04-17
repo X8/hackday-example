@@ -11,7 +11,7 @@ class Navigation extends Component {
       <Navbar brand='Football Hackday'>
         <Nav>
           <NavItem href='http://footballhackday.github.io/london/'>Website</NavItem>
-          <NavItem href='https://github.com/X8/hackday-example'>Source code</NavItem>
+          <NavItem href='https://github.com/footballhackday/hackday-example'>Source code</NavItem>
           <NavItem href='https://hackday-api.herokuapp.com/'>API</NavItem>
         </Nav>
       </Navbar>
