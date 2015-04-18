@@ -1,17 +1,8 @@
 'use strict';
 
 import React, { Component } from 'react';
-import Player from './Player';
 
 class Event extends Component {
-
-  renderPlayer(player) {
-    if(!player) {
-      return null;
-    }
-
-    return <Player player={player} />;
-  }
 
   render() {
     var event = this.props.event,
@@ -19,8 +10,7 @@ class Event extends Component {
 
     return (
       <li>
-        ({time.minutes}:{time.seconds}) <strong> {event.name} </strong>
-        {this.renderPlayer(event.player)} / {this.renderPlayer(event.recipient_player)}
+        ({time.minutes}:{time.seconds}) <strong> {event.description} </strong>
       </li>
     );
   }
