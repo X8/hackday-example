@@ -22,7 +22,7 @@
     "react": "0.13.1",
     "react-bootstrap": "0.20.0",
     "superagent": "1.1.0",
-    "moment": "2.10.2"
+    "moment": "2.26.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",
