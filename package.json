@@ -19,7 +19,7 @@
     "front-matter": "1.0.0",
     "jade": "1.9.2",
     "lodash": "3.6.0",
-    "react": "0.13.1",
+    "react": "16.13.1",
     "react-bootstrap": "0.20.0",
     "superagent": "1.1.0",
     "moment": "2.10.2"
